@@ -124,7 +124,7 @@ def download_from_url(music_data):
             total=file_size, initial=first_byte,
             unit='B', unit_scale=True, desc=dst)
         req = requests.get(url, headers=header, stream=True)
-        with(opendst, 'ab')) as f:
+        with(open(dst, 'ab')) as f:
             for chunk in req.iter_content(chunk_size=1024):
                 if chunk:
                     f.write(chunk)
